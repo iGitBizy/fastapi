@@ -10,11 +10,15 @@
     - 4 legs, 2 ears, goldendoodle, etc 
 
 ### 4 Pillars of OOP
-- Encapsulation 
+- Encapsulation
+    - refers to the Bundling of data
+    - change public attributes to be private so they cannot be changes
 - Abstraction
     - interface that allows a user to turn on/off functionality without needing to understand
     - hide implementation and only show necessary details
 - Inheritance
+    - Inheritance is the process of acquiring properties from one class to the next
+    - creates hierachy between classes
 - Polymorphism
 
 ### Create a game where enemies fight each other
