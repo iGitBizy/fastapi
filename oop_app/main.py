@@ -2,28 +2,64 @@
 from enemy import *
 from zombie import *
 from ogre import *
+from hero import *
+from weapon import *
 
-# # create new enemy object
-# zombie = Enemy('Zombie', 10, 1) # calling Enemy constructor with paramaters
-# big_zombie = Enemy('Big Zombie', 50, 10)
+# def battle(e1: Enemy, e2: Enemy):
+#     e1.talk()
+#     e2.talk()
 
-# zombie.get_type_of_enemy()
+#     while e1.health_points >0 and e2.health_points > 0:
+#         print('-------------------------')
+#         e1.special_attack()
+#         e2.special_attack()
+#         print(f'{e1.get_type_of_enemy()}: {e1.health_points} HP left')
+#         print(f'{e2.get_type_of_enemy()}: {e2.health_points} HP left')
+#         e2.attack()
+#         e1.health_points -= e2.attack_damage
+#         e1.attack()
+#         e2.health_points -= e1.attack_damage
 
-# zombie.talk()
-# zombie.stats()
-# zombie.walk_forward()
-# zombie.attack()
+#     print('-------------------')
 
-zombie = Zombie(10, 3)
-ogre = Ogre(9, 4)
+#     if e1.health_points > 0:
+#         print(f'{e1.get_type_of_enemy()} wins!')
+#     else:
+#         print(f'{e2.get_type_of_enemy()} wins!')
 
-print(zombie.get_type_of_enemy())
-zombie.stats()
-zombie.talk()
-zombie.walk_forward()
-print('\n')
+def hero_battle(hero: Hero, enemy: Enemy):
 
-print(ogre.get_type_of_enemy())
-ogre.stats()
-ogre.talk()
-ogre.walk_forward()
+    enemy.talk()
+
+    while hero.health_points > 0 and enemy.health_points > 0:
+        print('-------------------------')
+        enemy.special_attack()
+        print(f'Hero: {hero.health_points} HP left')
+        print(f'{enemy.get_type_of_enemy()}: {enemy.health_points} HP left')
+        enemy.attack()
+        hero.health_points -= enemy.attack_damage
+        hero.attack()
+        enemy.health_points -= hero.attack_damage
+
+    print('-------------------')
+
+    if hero.health_points > 0:
+        print(f'Hero wins!')
+    else:
+        print(f'{enemy.get_type_of_enemy()} wins!')
+
+
+
+
+
+
+
+
+zombie = Zombie(10, 1)
+ogre = Ogre(10, 3)
+hero = Hero(10, 1)
+weapon = Weapon('Shotgun', 5)
+hero.weapon = weapon 
+hero.equip_weapon()
+
+hero_battle(hero, ogre)
